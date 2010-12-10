@@ -1,0 +1,113 @@
+@charset "utf-8";
+/* CSS Document */
+body
+{
+    margin:0;
+    padding:0;
+    background:#ebeff9;
+}
+.main-container
+{
+    width:630px;
+    margin:45px auto;
+}
+.cenetr-container {
+    width:630px;
+    background:#FFF;
+    border:4px solid #b5c7de;
+    border-radius: 15px;
+    float:right;
+}
+.main-title
+{
+    float:left;
+    width:110px;
+    height:41px;
+    margin-left:252px;
+    margin-top:15px;
+    background:url(../images/title.png) no-repeat;
+}
+.content-group
+{
+    float:right;
+    margin-top:30px;
+    margin-right:45px;
+    width:580px;
+}
+.content-label
+{
+    float:right;
+    width:175px;
+    font:20px Arial, Helvetica, sans-serif;
+    color:#333;
+    text-align:right;
+    direction:rtl;
+}
+.menu
+{
+    float:right;
+    width:160px;
+    height:20px;
+    direction:rtl;
+}
+.form-group
+{
+    float:right;
+    width:275px;
+}
+.options-group
+{
+    float:right;
+    width:275px;
+    margin-top:10px;
+}
+.first
+{
+    margin-top:0;
+}
+.form-element
+{
+    float:right;
+    width:15px;
+}
+.option
+{
+    float:right;
+    font:15px Arial, Helvetica, sans-serif;
+    color:#333;
+    margin-top:2px;
+    margin-right:5px;
+    cursor: pointer;
+}
+.btn-group
+{
+    float:right;
+    width:100%;
+    margin:25px 0;
+}
+.reset-btn, .save-btn{
+    cursor: pointer;
+    float:left;
+    width:101px;
+    height:26px;
+    margin-left:25px;
+    background:url(../images/reset.png) no-repeat;
+    border:0;
+}
+.save-btn{
+
+    width:73px;
+    margin-left:10px;
+    background:url(../images/save.png) no-repeat;
+}
+.saved-span{
+    background: #B5C7DE;
+    border-radius: 8px;
+    color: #333;
+    float: left;
+    font: normal normal normal 15px/normal Arial, Helvetica, sans-serif;
+    margin-left: 9px;
+    margin-top: 2px;
+    padding: 3px 16px;
+    display: none;
+}
