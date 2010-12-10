@@ -1,0 +1,94 @@
+﻿<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <title>اعدادات المترجم</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="../jquery.js"></script>
+        <script type="text/javascript" src="../option_js.js"></script>
+        <link rel="stylesheet" type="text/css" href="../css/optionstyle.css" />
+    </head>
+    <body>
+        <!--        <div>
+                    translate to :
+                    AR:<input class="radiolang" id="radio_ar" type="radio" name="lang" value="ar"/>
+                    EN:<input class="radiolang" id="radio_en" type="radio" name="lang" value="en"/>
+                </div>-->
+        <div class="main-container">
+            <div class="cenetr-container">
+                <div class="main-title"></div>
+                <div class="content-group">
+                    <label class="content-label"> اختر لغة الترجمة :</label>
+                    <div class="form-group">
+                        <div class="options-group">
+                            <label class="option">
+                                العربية
+                            <input class="" id="radio_ar" type="radio" name="lang" value="ar"/>
+                            </label>
+<!--                            <span class="option"></span>-->
+                        </div>
+                        <div class="options-group">
+                            <label class="option">
+                                الإنجليزية
+                            <input class="" id="radio_en" type="radio" name="lang" value="en"/>
+                            </label>
+<!--                            <span class="option"></span>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="content-group">
+                    <label class="content-label">إعدادت المترجم :</label>
+                    <div class="form-group">
+                        <div class="options-group first">
+                            <label class="option">الظهور مع نقرتين على الكلمة
+                            <input name="popupaction" id="popupaction_selection" type="radio" value="selection"  class=""/>
+                            </label>
+                            <span class="option"></span>
+                        </div>
+                        <div class="options-group">
+                            <label class="option">
+                                <a id="mac" dir="rtl">الظهور مع CTRL + نقرتين مع الكلمة</a>
+                            <input name="popupaction" id="popupaction_ctrl" type="radio" value="ctrl" class=""/>
+                            </label>
+<!--                            <span class="option" id="mac"></span>-->
+                        </div>
+                        <div class="options-group">
+                            <label class="option">
+                                عدم الظهور
+                            <input name="popupaction" id="popupaction_nodisplay" type="radio" value="nodisplay"  class=""/>
+                            </label>
+<!--                            <span class="option"></span>-->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-group">
+                    <label class="content-label">شريط العنوان :</label>
+                    <div class="form-group">
+                        <div class="options-group first">
+                            <label class="option">اعرض ايقونة القاموس فى شريط العنوان
+                            <input name="popupicon" id="popupicon_true" type="radio" value="true"  class=""/>
+                            </label>
+<!--                            <span class="option"></span>-->
+                        </div>
+                        <div class="options-group">
+                            <label class="option">لا تعرض ايقونة القاموس فى شريط العنوان
+                            <input name="popupicon" id="popupicon_false" type="radio" value="false" class=""/>
+                            </label>
+<!--                            <span class="option"></span>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <input type="button" value="" id="resetbutton" class="reset-btn"  />
+                    <input type="button" value="" id="savebutton" class="save-btn"  />
+                    <span id="saved" class="saved-span">  تم الحفظ </span>
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>
