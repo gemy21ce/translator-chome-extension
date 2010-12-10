@@ -1,0 +1,25 @@
+{
+  "name": "The Translator - المترجم",
+  "description": "إضافة رائعة للترجمة من أي لغة إلى العربية أو الإنجليزية",
+  "version": "1.0",
+  "permissions": ["tabs", "http://*/*","https://*/*"],
+  "background_page": "views/background.html",
+  "options_page": "views/options.html",
+  "content_scripts": [
+    {
+      "all_frames": true,
+      "matches": ["http://*/*","https://*/*"],
+      "css": ["tooltip/style.css"],
+      "js": ["contentscript.js","tooltip/script.js"]
+    }],
+  "page_action": {
+    "default_icon": "images/googleicon16.png",
+    "default_popup": "views/popup.html"
+  },
+  "icons": {
+      "128": "images/icon_1.png",
+      "16": "images/icon_1.png",
+      "32": "images/icon_1.png",
+      "48": "images/icon_1.png"
+   }
+}
