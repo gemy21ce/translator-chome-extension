@@ -7,8 +7,8 @@ chrome.extension.sendRequest({
     'action':'getsettings'
 }, settingsResponse);
 
-var ev=false;
-document.onkeydown=function(e){
+//var ev=false;
+/*document.onkeydown=function(e){
     if(navigator.userAgent.indexOf("Mac")!= -1){
         if(e.keyCode==91){
             ev=true;
@@ -18,8 +18,8 @@ document.onkeydown=function(e){
             ev=true;
         }
     }
-}
-document.onkeyup=function(e){
+}*/
+/*document.onkeyup=function(e){
     if(navigator.userAgent.indexOf("Mac")!= -1){
         if(e.keyCode==91){
             ev=false;
@@ -29,11 +29,12 @@ document.onkeyup=function(e){
             ev=false;
         }
     }
-    
-}
+}*/
+var keyCode = ( navigator.userAgent.indexOf("Mac")!= -1 ?  91 : 17 );
+
 document.onmouseup = function(e){
     if(settings.popupAction.actionType == 'ctrl'){
-        if(ev){
+        if(EXTSpecialKeys.specialKeys(keyCode)){
             requesting();
         }
     }else if(settings.popupAction.actionType == 'selection'){
@@ -45,12 +46,17 @@ var requesting=function(){
     if((window.getSelection().anchorNode.parentNode.id).substr(0, 5)=='trcrx'){
         return;
     }
-    var text=document.getSelection();
-    if(text != null && trimAll(''+text+'').length != 0 && (''+text+'').length < 355){
+    var text=''+document.getSelection();
+    if(text.length >= 355){
+        tooltip.show("\u0644\u0627 \u064a\u0645\u0643\u0646 \u062a\u0631\u062c\u0645\u0629 \u0643\u0644 \u0647\u0630\u0627 \u0627\u0644\u0643\u0645 \u0645\u0646 \u0627\u0644\u0643\u0644\u0645\u0627\u062a");
+        return;
+    }
+
+    if(text != null && trimAll(text).length != 0 && text.length < 355){
         tooltip.show("\u062c\u0627\u0631\u064a \u0627\u0644\u0628\u062d\u062b \u0648\u0627\u0644\u062a\u0631\u062c\u0645\u0647\......")
         var ob={
             'action' : 'gettranslation',
-            'translate':''+text+''
+            'translate':text
         }
         tooltip.pageX=window.event.pageX;
         tooltip.pageY=window.event.pageY;
@@ -61,9 +67,7 @@ var requesting=function(){
 onResponse=function(ob){
     tooltip.show(ob.text,null,ob.src,ob.target);
 }
-//document.onmousedown=function(){
-//    tooltip.hide()
-//};
+
 function trimAll( strValue ) {
     /************************************************
 DESCRIPTION: Removes leading and trailing spaces.

@@ -43,7 +43,8 @@ var tooltip=function(){
                 crx_l.style.display='block';
             else
                 crx_l.style.display='none';
-            crx_l.innerHTML = "<b id='trcrx_p'>" + x + "</b>" + " &#187; " + "<b id='trcrx_p'>" + z + "</b>";
+            //crx_l.innerHTML = "<b>" + x + "</b>" + " &#187; " + "<b>" + z + "</b>"
+	    crx_l.innerHTML = "<b id='trcrx_p'>" + x + "</b>" + " &#187; " + "<b id='trcrx_p'>" + z + "</b>";
             tt.style.width = w ? w + 'px' : 'auto';
             if(!w && ie){
                 t.style.display = 'none';
