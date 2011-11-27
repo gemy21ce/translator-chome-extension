@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 $(function(){
-    $("#textHolder").keyup(function(e){
+    $("#translateButton").click(function(e){
         if ($("#textHolder").attr('value')!= ""){
             if( $("#textHolder").attr('value').length > 355){
                 $("div#error").html('text too long');
@@ -35,7 +35,7 @@ var POPUP={
         window.localStorage.targetLang=JSON.stringify({
             lang:lang
         });
-        $("#textHolder").trigger("keyup");
+        $("#translateButton").trigger("click");
     },
     OpenOptionPage:function(){
         var url=chrome.extension.getURL("/views/options.html")
