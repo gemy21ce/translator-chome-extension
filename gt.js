@@ -33,7 +33,8 @@ var translate=function(text,callback){
 }*/
 
 //using api v2
-APIKey='AIzaSyBmj2ikhxHTn5riuhAyAoyfBXsPMaL2j0k';
+var APIKey='AIzaSyBmj2ikhxHTn5riuhAyAoyfBXsPMaL2j0k';
+var charLimit = 0;
 var v2 = {
     detect:{
         url:'https://www.googleapis.com/language/translate/v2/detect',
@@ -53,8 +54,23 @@ var v2 = {
     }
 }
 var translate = function(text,callback){
-    console.log('ss')
+    //checking the char limit
     var target=JSON.parse(window.localStorage.targetLang).lang;
+    if(! window.localStorage.usedChars){
+        window.localStorage.usedChars = 0;
+    }
+    var usedChars = parseInt(window.localStorage.usedChars);
+    console.log(charLimit , usedChars,charLimit < usedChars)
+    if (charLimit < usedChars){
+        callback({
+            text:'Limit Exceeded',
+            src:LANGLIST[target]['en'],
+            target:LANGLIST[target][target]
+        });
+        return;
+    }
+    usedChars += text.length;
+    window.localStorage.usedChars = usedChars;
     v2.detect.params.q = text.substr(0, 50);
     $.ajax({
         url:v2.detect.url,
