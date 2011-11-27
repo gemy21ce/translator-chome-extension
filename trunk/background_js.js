@@ -34,9 +34,9 @@ function onRequest(request, sender, callback) {
 // Wire up the listener.
 chrome.extension.onRequest.addListener(onRequest);
 
-chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab){
+/*chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab){
     var popupIcon=JSON.parse(window.localStorage.popupIcon).popupIcon;
     if(popupIcon == 'true'){
         chrome.pageAction.show(tabId);
     }
-});
+});*/

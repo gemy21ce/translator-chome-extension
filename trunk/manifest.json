@@ -10,16 +10,22 @@
       "all_frames": true,
       "matches": ["http://*/*","https://*/*"],
       "css": ["tooltip/style.css"],
-      "js": ["contentscript.js","tooltip/script.js"]
+      "js": ["contentscript.js","tooltip/script.js","specialkeys.js"]
     }],
-  "page_action": {
-    "default_icon": "images/googleicon16.png",
-    "default_popup": "views/popup.html"
-  },
+//  "page_action": {
+//    "default_icon": "images/googleicon16.png",
+//    "default_popup": "views/popup.html"
+//  },
   "icons": {
-      "128": "images/icon_1.png",
-      "16": "images/icon_1.png",
-      "32": "images/icon_1.png",
-      "48": "images/icon_1.png"
-   }
+      "128": "images/googleicon16.png",
+      "16": "images/googleicon16.png",
+      "32": "images/googleicon16.png",
+      "48": "images/googleicon16.png"
+   },
+   "browser_action": {
+        "default_title": "ترجم",
+        "tooltip": "ترجم",
+        "default_icon":"images/googleicon16.png",
+        "popup": "views/popup.html"
+  }
 }

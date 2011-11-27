@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
+/*
 google.load("language", "1");
 var translate=function(text,callback){
     var target=JSON.parse(window.localStorage.targetLang).lang;
@@ -18,8 +18,75 @@ var translate=function(text,callback){
                             src:LANGLIST[target][rslt.language],
                             target:LANGLIST[target][target]
                         });
+                    }else{
+                        google.language.translate(text, 'en', target,function(result){
+                            callback({
+                                text:result.translation,
+                                src:LANGLIST[target]['en'],
+                                target:LANGLIST[target][target]
+                            });
+                        });
                     }
                 });
+        }
+    });
+}*/
+
+//using api v2
+APIKey='AIzaSyBmj2ikhxHTn5riuhAyAoyfBXsPMaL2j0k';
+var v2 = {
+    detect:{
+        url:'https://www.googleapis.com/language/translate/v2/detect',
+        params:{
+            key:APIKey,
+            q:''
+        }
+    },
+    translate:{
+        url:'https://www.googleapis.com/language/translate/v2',
+        params:{
+            key:APIKey,
+            source:'',
+            target:'',
+            q:''
+        }
+    }
+}
+var translate = function(text,callback){
+    console.log('ss')
+    var target=JSON.parse(window.localStorage.targetLang).lang;
+    v2.detect.params.q = text.substr(0, 50);
+    $.ajax({
+        url:v2.detect.url,
+        data:v2.detect.params,
+        complete:function(jqXHR, textStatus){
+            if(jqXHR && jqXHR.status == 200){
+                var resp = JSON.parse(jqXHR.response);
+                var source = resp.data.detections[0][0].language;
+                v2.translate.params.source = source;
+                v2.translate.params.targe = target;
+                v2.translate.params.q = text;
+                $.ajax({
+                    url:v2.translate.url,
+                    data:v2.translate.params,
+                    complete:function(jqXHR, textStatus){
+                        if(jqXHR && jqXHR.status == 200){
+                            var resp = JSON.parse(jqXHR.response);
+                            callback({
+                                text:resp.data.translations[0].translatedText,
+                                src:LANGLIST[target]['en'],
+                                target:LANGLIST[target][target]
+                            });
+                        }
+                    }
+                });
+            }else{
+                callback({
+                    text:'Daily Limit Exceeded',
+                    src:LANGLIST[target]['en'],
+                    target:LANGLIST[target][target]
+                });
+            }
         }
     });
 }
