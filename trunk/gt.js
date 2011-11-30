@@ -71,7 +71,7 @@ var translate = function(text,callback){
     }
     usedChars += text.length;
     window.localStorage.usedChars = usedChars;
-    v2.detect.params.q = text.substr(0, 50);
+    v2.detect.params.q = text.substr(0, 20);
     $.ajax({
         url:v2.detect.url,
         data:v2.detect.params,
