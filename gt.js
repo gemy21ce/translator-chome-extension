@@ -33,8 +33,8 @@ var translate=function(text,callback){
 }*/
 
 //using api v2
-var APIKey='AIzaSyBmj2ikhxHTn5riuhAyAoyfBXsPMaL2j0k';
-var charLimit = 0;
+var APIKey='AIzaSyCAZ_Xm_CTFDDeGClbU6um_e0j21WjgOfc';
+var charLimit = 1000;
 var v2 = {
     detect:{
         url:'https://www.googleapis.com/language/translate/v2/detect',
@@ -80,7 +80,7 @@ var translate = function(text,callback){
                 var resp = JSON.parse(jqXHR.response);
                 var source = resp.data.detections[0][0].language;
                 v2.translate.params.source = source;
-                v2.translate.params.targe = target;
+                v2.translate.params.target = target;
                 v2.translate.params.q = text;
                 $.ajax({
                     url:v2.translate.url,
