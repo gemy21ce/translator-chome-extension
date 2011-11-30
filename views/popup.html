@@ -29,6 +29,15 @@ and open the template in the editor.
                 text-align:right;
                 direction:rtl;
             }
+			input[type='button']{
+			background: -webkit-gradient(linear, left top, left bottom, from(#B70B27), to(#880016));
+			border: 0;
+			color: white;
+			border-radius: 3px;
+			box-shadow: 0 2px 0 #630011;
+			padding: 0 15px;
+			margin-left: 20px;
+			}
         </style>
     </head>
     <body style="padding: 0;margin:0;background: #f3f3f3; border-radius:5px;-webkit-border-radius: 5px;">
@@ -42,7 +51,7 @@ and open the template in the editor.
                     <option id="radio_ar" value="ar">العربية</option>
                     <option id="radio_en" value="en">الانجليزيه</option>
                 </select>
-                <input type="button" value="translate" id="translateButton"/>
+                <input type="button" value="ترجم" id="translateButton"/>
             </div>
             <div id="translation" style="float: left;font: normal normal normal 15px/1.5 Verdana, Arial, Helvetica, sans-serif;margin-top: 5px; margin-bottom: 5px;min-height: 97px;background: #fff;direction: rtl; border: 1px solid #ccc;-webkit-border-radius: 5px;padding: 5px;width: 250px;margin-left: 7.5px;"></div>
             <div id="error"></div>
