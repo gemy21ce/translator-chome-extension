@@ -11,7 +11,7 @@ if(! window.localStorage.popupAction){
 if((! window.localStorage.popupIcon)){
     window.localStorage.popupIcon=JSON.stringify({popupIcon:"true"});
 }
-
+var usedChars = 0;
 /**
        * Handles data sent via chrome.extension.sendRequest().
        * @param request Object Data sent in the request.
