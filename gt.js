@@ -53,14 +53,14 @@ var v2 = {
         }
     }
 }
+var usedChars = chrome.extension.getBackgroundPage().usedChars;
 var translate = function(text,callback){
     //checking the char limit
     var target=JSON.parse(window.localStorage.targetLang).lang;
-    if(! window.localStorage.usedChars){
+    /*if(! window.localStorage.usedChars){
         window.localStorage.usedChars = 0;
     }
-    var usedChars = parseInt(window.localStorage.usedChars);
-    console.log(charLimit , usedChars,charLimit < usedChars)
+    var usedChars = parseInt(window.localStorage.usedChars);*/
     if (charLimit < usedChars){
         callback({
             text:'Limit Exceeded',
@@ -70,7 +70,7 @@ var translate = function(text,callback){
         return;
     }
     usedChars += text.length;
-    window.localStorage.usedChars = usedChars;
+    chrome.extension.getBackgroundPage().usedChars = usedChars;
     v2.detect.params.q = text.substr(0, 20);
     $.ajax({
         url:v2.detect.url,
